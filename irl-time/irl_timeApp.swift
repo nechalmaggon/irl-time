@@ -13,5 +13,17 @@ struct irl_timeApp: App {
         WindowGroup {
             ContentView()
         }
+
+        MenuBarExtra {
+            Button("Open IRL Time") {
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            Divider()
+            Button("Quit") {
+                NSApp.terminate(nil)
+            }
+        } label: {
+            Image("MenuBarIcon")
+        }
     }
 }
