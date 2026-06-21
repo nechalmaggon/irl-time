@@ -13,6 +13,7 @@ A minimal macOS menu-bar time-tracker. Logs sessions (task title, start time, en
 
 - Background: `AppBackground` color asset — light `#FAFAF8` / dark `#161616`
 - Foreground/numerals: `AppForeground` color asset — light `#1A1A1A` / dark `#F2F2F0`
+- Live indicator: `LiveIndicatorGreen` color asset — light `#2E7D32` (deep, for near-white card) / dark `#66BB6A` (brighter, for near-black card)
 - Timer display: SF Mono `.system(size: 64, weight: .semibold, design: .monospaced)` + `.monospacedDigit()`
 - Task title: proportional `.system(size: 13, weight: .medium, design: .default)` at 50% foreground opacity
 - Colors swap automatically with system appearance via named Color assets
@@ -36,6 +37,7 @@ A minimal macOS menu-bar time-tracker. Logs sessions (task title, start time, en
 - [x] Task title styled distinctly (13pt medium, recedes vs. numerals)
 - [x] Color assets (`AppBackground`, `AppForeground`) with light/dark variants
 - [x] Menu bar template icon wired via `MenuBarExtra`
+- [x] Live indicator dot — 8pt `Circle`, `LiveIndicatorGreen` color token, easeInOut pulse (scale 1→1.35, opacity 1→0.4, 1s repeat), visible only while running, bottom-trailing offset on the timer numeral
 - [ ] Title-input flow (inline prompt before start)
 - [ ] Flip animation on start/stop
 - [ ] Hotkey support
@@ -45,6 +47,7 @@ A minimal macOS menu-bar time-tracker. Logs sessions (task title, start time, en
 ## Changelog
 
 - **2026-06-21** — Styling pass: HH:MM display, SF Mono 64pt numerals, task title deprioritised to 13pt medium, `AppBackground`/`AppForeground` named color assets with light/dark variants, SVG template icon + `MenuBarExtra` wired up.
+- **2026-06-21** — Live indicator dot: `LiveIndicatorGreen` color asset (light `#2E7D32` / dark `#66BB6A`), 8pt pulsing `Circle` shown bottom-trailing on the timer numeral while running.
 
 ## Open / Partial Items
 

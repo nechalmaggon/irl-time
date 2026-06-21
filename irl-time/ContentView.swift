@@ -1,5 +1,22 @@
 import SwiftUI
 
+struct LiveDot: View {
+    @State private var pulsing = false
+
+    var body: some View {
+        Circle()
+            .fill(Color("LiveIndicatorGreen"))
+            .frame(width: 8, height: 8)
+            .scaleEffect(pulsing ? 1.35 : 1.0)
+            .opacity(pulsing ? 0.4 : 1.0)
+            .animation(
+                .easeInOut(duration: 1.0).repeatForever(autoreverses: true),
+                value: pulsing
+            )
+            .onAppear { pulsing = true }
+    }
+}
+
 struct ContentView: View {
     @StateObject private var vm = TimerViewModel()
 
@@ -13,10 +30,17 @@ struct ContentView: View {
                 .textFieldStyle(.roundedBorder)
                 .disabled(vm.isRunning)
 
-            Text(vm.elapsedFormatted)
-                .font(.system(size: 64, weight: .semibold, design: .monospaced))
-                .monospacedDigit()
-                .foregroundStyle(Color("AppForeground"))
+            ZStack(alignment: .bottomTrailing) {
+                Text(vm.elapsedFormatted)
+                    .font(.system(size: 64, weight: .semibold, design: .monospaced))
+                    .monospacedDigit()
+                    .foregroundStyle(Color("AppForeground"))
+
+                if vm.isRunning {
+                    LiveDot()
+                        .offset(x: 6, y: -4)
+                }
+            }
 
             HStack(spacing: 16) {
                 Button("Start") { vm.start() }
