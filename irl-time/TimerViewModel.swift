@@ -75,9 +75,9 @@ final class TimerViewModel: ObservableObject {
     }
 
     var elapsedFormatted: String {
-        let m = elapsedSeconds / 60
-        let s = elapsedSeconds % 60
-        return String(format: "%02d:%02d", m, s)
+        let h = elapsedSeconds / 3600
+        let m = (elapsedSeconds % 3600) / 60
+        return String(format: "%02d:%02d", h, m)
     }
 }
 

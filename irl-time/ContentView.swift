@@ -5,15 +5,18 @@ struct ContentView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("IRL Time")
-                .font(.title)
+            Text(vm.taskTitle.trimmingCharacters(in: .whitespaces).isEmpty ? "IRL Time" : vm.taskTitle)
+                .font(.system(size: 13, weight: .medium, design: .default))
+                .foregroundStyle(Color("AppForeground").opacity(0.5))
 
             TextField("Task title", text: $vm.taskTitle)
                 .textFieldStyle(.roundedBorder)
                 .disabled(vm.isRunning)
 
             Text(vm.elapsedFormatted)
-                .font(.system(size: 48, weight: .medium, design: .monospaced))
+                .font(.system(size: 64, weight: .semibold, design: .monospaced))
+                .monospacedDigit()
+                .foregroundStyle(Color("AppForeground"))
 
             HStack(spacing: 16) {
                 Button("Start") { vm.start() }
@@ -38,6 +41,7 @@ struct ContentView: View {
         }
         .padding(24)
         .frame(minWidth: 360, minHeight: 280)
+        .background(Color("AppBackground"))
     }
 }
 
