@@ -6,7 +6,7 @@ Inspired by how [Christi Newrutzen](https://www.instagram.com/reel/DSLNEoVkmEW/?
 
 I built a timer for my desktop to log exactly how long my boring work takes (sigh, release notes) so that I plan my day with irl time instead of "ugh-this-will-take-forever" time 
 
-<img width="1008" height="647" alt="irltime" src="https://github.com/user-attachments/assets/5c299403-7b98-47a9-b0ba-d2a106173b43" />
+<img width="3024" height="1941" alt="Frame 65" src="https://github.com/user-attachments/assets/39000e59-1cb2-4478-9536-07b3e4e2a468" />
 
 ## Progress
 **Phase 1:MVP**
